@@ -1,15 +1,14 @@
-import { deleteContact } from 'components/redux/contactsSlice';
+import { deleteContact } from 'redux/contactsSlice';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Button, TextStyled } from './ContactItem.styled';
 
-const ContactItem = ({ name, number, id,  }) => {
- const dispatch = useDispatch();
+const ContactItem = ({ name, number, id }) => {
+  const dispatch = useDispatch();
   const contactDelete = contactId => {
     dispatch(deleteContact(contactId));
   };
-  
-  
+
   return (
     <>
       <p>{name}</p>
@@ -29,9 +28,6 @@ ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  
 };
-
-
 
 export default ContactItem;

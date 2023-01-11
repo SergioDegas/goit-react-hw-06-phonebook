@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Button, FormStyled, Input, Label } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'components/redux/contactsSlice';
+import { addContact } from 'redux/contactsSlice';
 import { nanoid } from 'nanoid';
-import { getContacts } from 'components/redux/selectors';
+import { getContacts } from 'redux/selectors';
 
 const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
- const contacts = useSelector(getContacts);
+  const contacts = useSelector(getContacts);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -29,8 +29,9 @@ const Form = () => {
   const handleSubmit = e => {
     e.preventDefault();
     // console.log(contacts);
+   
     if (contacts.find(contact => contact.name === name)) {
-       setName('');
+      setName('');
       return toast.error(
         `The contact with this name ${name} is already in the phone book`
       );

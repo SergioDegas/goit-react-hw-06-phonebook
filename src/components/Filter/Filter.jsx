@@ -1,18 +1,17 @@
-import { setByNameFilter } from 'components/redux/filtersSlice';
-import { getFilterByName } from 'components/redux/selectors';
+import { setByNameFilter } from 'redux/filtersSlice';
+import { getFilterByName } from 'redux/selectors';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Input, Label } from './Filter.styled';
 
 const Filter = () => {
-   const filter = useSelector(getFilterByName);
+  const filter = useSelector(getFilterByName);
   const dispatch = useDispatch();
-  
+
   const filterByName = e => {
     console.log(e.currentTarget.value);
-  dispatch(setByNameFilter(e.target.value));
-  
-  }
+    dispatch(setByNameFilter(e.target.value));
+  };
   return (
     <Label>
       <Input
@@ -24,7 +23,5 @@ const Filter = () => {
     </Label>
   );
 };
-
-
 
 export default Filter;
