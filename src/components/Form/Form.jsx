@@ -29,7 +29,7 @@ const Form = () => {
   const handleSubmit = e => {
     e.preventDefault();
     // console.log(contacts);
-    if (contacts.flatMap(contact => contact.name === name)) {
+    if (contacts.find(contact => contact.name === name)) {
        setName('');
       return toast.error(
         `The contact with this name ${name} is already in the phone book`
