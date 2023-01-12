@@ -23,6 +23,7 @@ export const rootReducer = combineReducers({
 const persistConfig = {
   key: 'contact',
   storage,
+  whitelist: ['contact'],
 };
 
 
